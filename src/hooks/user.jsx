@@ -1,4 +1,3 @@
-import { context } from 'msw';
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 import { signInUser, signOutUser, signUpUser } from '../services/users';
@@ -13,6 +12,7 @@ export const useAuth = () => {
 
 
   const { user, setUser } = context;
+  const isLoggedIn = user?.email;
 
   const signUp = async (email, password) => {
     try {
@@ -34,5 +34,7 @@ export const useAuth = () => {
     await signOutUser();
     setUser({});
   }
+
+  return { user, isLoggedIn, signIn, signOut, signUp };
 };
 
