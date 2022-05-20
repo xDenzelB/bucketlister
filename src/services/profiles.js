@@ -8,3 +8,13 @@ export async function getProfile(user_id) {
     .single();
   return parseData(request);
 }
+
+export async function updateProfile({ name, email, bio, dob }) {
+  const request = await client
+    .from('profiles')
+    .update({ name, bio, dob })
+    .match({ email })
+    .single();
+  return parseData(request);
+}
+
