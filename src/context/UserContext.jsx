@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
     loadingProfile();
   }, [user]);
 
-  return <UserContext.Provider value={{ user, setUser, profile, isLoaded, setProfile }}>
+  return <UserContext.Provider value={{ user, setUser, profile, isLoaded, setProfile, isLoading }}>
   {children}
 </UserContext.Provider>
 }

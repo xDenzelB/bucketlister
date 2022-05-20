@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 import { signInUser, signOutUser, signUpUser } from '../services/users';
+import { createProfile, updateProfile } from '../services/profiles';
 
 
 export const useAuth = () => {
@@ -37,4 +38,33 @@ export const useAuth = () => {
 
   return { user, isLoggedIn, signIn, signOut, signUp };
 };
+
+export const useUser = () => {
+  const context = useContext(UserContext);
+  if (context === undefined) {
+    throw new Error('useUser must be used within userProvider');
+  }
+  
+  const { user, profile, isLoading, setProfile } = context;
+
+  const newProfile = async (data) => {
+    try {
+      const profile = await createProfile(data);
+      setProfile(profile);
+
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const updatedProfile = async (data) => {
+    try {
+      const profile = await updateProfile(data);
+      setProfile(profile);
+    } catch (error) {
+      throw error;
+    }
+  };
+  return { user, profile, isLoading, newProfile, updatedProfile };
+}
 
