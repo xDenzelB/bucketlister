@@ -1,4 +1,3 @@
-import { parse } from 'dotenv';
 import { client, parseData } from './client';
 
 export async function getProfile(user_id) {
