@@ -15,3 +15,13 @@ function reducer(activity, { type, payload }) {
       throw Error(`Unknown action: ${type}`);
   }
 }
+
+export const BucketListProvider = ({ children }) => {
+  const [activity, dispatch] = useReducer(reducer);
+
+  return (
+    <BucketListContext.Provider value={{ activity, dispatch }}>
+      {children}
+    </BucketListContext.Provider>
+  )
+}
