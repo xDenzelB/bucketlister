@@ -7,6 +7,8 @@ function reducer(activity, { type, payload }) {
   switch (type) {
     case 'create':
       return [payload, ...activity];
+    case 'reset':
+      return payload;
     case 'update':
       return activity.map((item) => (item.id === payload.id ? payload : item));
     case 'delete':
