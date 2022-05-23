@@ -1,7 +1,7 @@
 import { act } from "react-dom/test-utils";
 
-export default function BucketListDetail({ activity, isOwner }) {
-  const { title, activity, name, created } = activity;
+export default function BucketListDetail({ activities, isOwner }) {
+  const { title, activity, name, created } = activities;
 
   const date = new Date(created).toLocaleDateString();
 

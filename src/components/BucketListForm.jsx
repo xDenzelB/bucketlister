@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useForm } from "../hooks/useForm";
 
 export default function BucketListForm({
-  activity = {},
+  activities = {},
   onSubmit,
 }) {
-  const { title = '', activity = '' } = activity;
+  const { title = '', activity = '' } = activities;
   const { formState, handleChange } = useForm({ title, activity });
   const [saved, setSaved] = useState(false);
 
