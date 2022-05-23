@@ -21,8 +21,7 @@ export async function updateProfile({ name, email, bio, dob }) {
 export async function createProfile({ name, email, bio, dob }) {
   const request = await client
     .from('profile')
-    .insert({ name, bio, dob })
-    .match({ email })
+    .insert({ name, email, bio, dob })
     .single();
   return parseData(request);
 }

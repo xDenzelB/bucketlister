@@ -17,7 +17,7 @@ export default function ViewProfile() {
   return hasProfile
     ? <ShowProfile profile={profile} />
     : <CreateProfile email={user.email} onCreate={handleCreate}
-    />;
+    />
 }
 
 function CreateProfile({ email, onCreate }) {

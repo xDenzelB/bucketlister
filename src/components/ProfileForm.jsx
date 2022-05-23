@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { useForm } from '../hooks/useForm';
 
 export default function ProfileForm({
-  formLabel = 'Profile Form',
   name = '',
-  email = '',
+  email,
   dob = '',
   bio = '',
   onSubmit,
