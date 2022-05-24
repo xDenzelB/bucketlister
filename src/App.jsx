@@ -11,6 +11,7 @@ import ViewBucketList from "./views/ViewBucketList";
 import EditActivity from "./views/EditActivity";
 import CopyActivities from "./views/CopyActivities";
 import Home from "./views/Home";
+import Header from "./components/Header";
 
 export default function App() {
   return (
@@ -19,13 +20,17 @@ export default function App() {
       <UserProvider>
         <BucketListProvider>
 
-        <Router>
+          <Router>
+            <Header />
           <Switch>
-            <Route path='/login'></Route>
+              <Route path='/login'>
+                
             <Auth />
-          </Switch>
-          <Route path='/register'></Route>
+            </Route>
+              <Route path='/register'>
+                
           <Auth isSigningUp />
+          </Route>
           <PrivateRoute path='/profile/edit'>
             <EditProfile />
           </PrivateRoute>
@@ -50,6 +55,7 @@ export default function App() {
             <Route path='/'>
               <Home />
             </Route>
+          </Switch>
 
 
         </Router>
