@@ -10,6 +10,7 @@ import AddActivity from "./views/AddActivity";
 import ViewBucketList from "./views/ViewBucketList";
 import EditActivity from "./views/EditActivity";
 import CopyActivities from "./views/CopyActivities";
+import Home from "./views/Home";
 
 export default function App() {
   return (
@@ -46,6 +47,9 @@ export default function App() {
             <PrivateRoute exact={true} path='/bucketList/:id/copy'>
               <CopyActivities />
             </PrivateRoute>
+            <Route path='/'>
+              <Home />
+            </Route>
 
 
         </Router>
